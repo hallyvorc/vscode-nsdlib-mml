@@ -1,0 +1,174 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "nsdlib",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#mml_header"
+		},
+		{
+			"include": "#mml_operators"
+		},
+		{
+			"include": "#mml_functions"
+		},
+		{
+			"include": "#mml_numbers"
+		}
+	],
+	"repository": {
+		"string": {
+				"patterns": [
+					{
+					  "begin": "'",
+					  "end": "'",
+					  "name": "string.quoted.single.nsdlib"
+					},
+					{
+					  "begin": "\\\"",
+					  "end": "\\\"",
+					  "name": "string.quoted.double.nsdlib"
+					}    ]
+		},
+				"comments": {
+				  "patterns": [
+					{
+					 "begin": "\\/\\*",
+					 "end": "\\*\\/",
+					 "name": "comment.block.nsdlib"
+					},
+					{
+					 "begin": "\\/\\/",
+					 "end": "\\n",
+					 "name": "comment.line.nsdlib"
+					},
+					{
+					  "begin": ";",
+					  "end": "\\n",
+					  "name": "comment.line.nsdlib"
+					}
+				  ]
+	},
+				"mml_header": {                             
+				  "patterns": [
+					{
+					  "begin": "^#\\w+",                                
+					  "end": "\\n",
+					  "name": "storage.type.function.nsdlib",
+					
+					"patterns": [
+						{
+						  "match": "\\s+[^;]*",                          
+						  "name": "string.quoted.single.nsdlib"
+						},
+						{
+						  "include": "#comments"
+						}
+					]
+				},
+	
+					{
+					  "match": "[A-Z]+.*\\(\\d+\\)",                  
+					  "name": "keyword.control.nsdlib"
+					},
+					{
+					  "match": "^\\@??\\w+\\s??\\(\\d+\\)",          
+					  "name": "keyword.control.nsdlib"
+					},
+					{
+					  "match": "^\\@??DPCM",                          
+					  "name": "keyword.control.nsdlib"
+					}
+		  ]
+	},
+				"mml_operators": {                 
+				  "patterns":[
+	
+					{
+					  "match": "[loqtuvw&@FDJSQV_](\\_|\\%)??\\d+",      
+					  "name": "keyword.control.nsdlib"
+					},
+
+					{
+					  "match": "[A-CEGHIK-PRTUWXYZs]\\w?\\d+",           
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "match": "yV??\\$??\\d+",                          
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "match": "L\\s|\\^|&",                                   
+					  "name": "string.quoted.single.nsdlib"
+					},
+					{
+					  "match": "(H|M)\\w+r(\\s|\\n)",                   
+					  "name": "keyword.control.nsdlib"
+					},
+					{
+					  "match": "[A-Z].?(\\*|\\-)",                       
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "match": "\\,\\-??\\d+",                           
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "match": "EC[a-g]",                                
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "begin": "K\\{",                                   
+					  "end": "\\}",
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "match": "(\\[|\\:|\\\\|\\||\\])\\d+{0,4}",        
+					  "name": "keyword.control.nsdlib"
+					},
+					{
+					  "match": "(\\{|\\})",                              
+					  "name": "keyword.control.nsdlib"
+					},
+					{
+					  "match": "(\\(|\\))\\d+{0,4}",                     
+					  "name": "keyword.control.nsdlib"
+					},
+					{
+					  "match": "(\\<|\\>|\\\"|\\')",                       
+					  "name": "keyword.control.nsdlib"
+					}
+				  ]
+				},
+
+				"mml_functions": {                           
+				  "patterns":[
+					{
+					  "match": "\\$\\$??\\w+\\s?",                      
+					  "name": "variable.language.nsdlib"
+					},
+					{
+					  "match": "(E|R)??\\@\\w+\\s?",                  
+					  "name": "variable.language.nsdlib"
+					}
+					]
+				},
+
+				"mml_numbers": {                            
+				  "patterns":[
+					{
+					  "match": "\\$[0-9a-fA-F]+",                       
+					  "name": "constant.numeric.integer.hexadecimal.nsdlib"
+					},
+					{
+					  "match": "\\%\\d+",                              
+					  "name": "constant.numeric.integer.binary.nsdlib"
+					}
+				  ]
+		
+		}
+	},
+	"scopeName": "source.nsdlib"
+}

@@ -1,0 +1,49 @@
+{
+	"name": "nsdlib-mml",
+	"displayName": "NSDLIB-MML",
+	"description": "NSDLIB MML",
+	"version": "0.0.1",
+	"publisher": "hallyvorc",
+	"icon": "nsdlib_mml.png",
+	"engines": {
+		"vscode": "^1.13.0"
+	},
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "nsdlib",
+				"aliases": [
+					"nsdlib"
+				],
+				"extensions": [
+					".mml"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "nsdlib",
+				"scopeName": "source.nsdlib",
+				"path": "./syntaxes/nsdlib.tmLanguage.json"
+			}
+		]
+	},
+	"license": "",
+	"homepage": "",
+	"bugs": {
+		"url": ""
+	},
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"__metadata": {
+		"id": "",
+		"publisherId": "",
+		"publisherDisplayName": "hallyvorc"
+	}
+}
